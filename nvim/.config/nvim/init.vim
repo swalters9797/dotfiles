@@ -1,39 +1,64 @@
 " Plugin Section
 call plug#begin()
- 	Plug 'neoclide/coc.nvim', {'branch': 'release'} " likely need to install node and yarn, see github for instructions (run yarn install inside coc.vim directory)
+	Plug 'neovim/nvim-lspconfig'
+	Plug 'nvim-lua/plenary.nvim'
+	Plug 'nvim-telescope/telescope.nvim' " Need to run brew install ripgrep for grep commands to work
+	Plug 'hrsh7th/nvim-cmp'
+	Plug 'hrsh7th/cmp-nvim-lsp'
+	Plug 'hrsh7th/cmp-nvim-lua'
+	Plug 'hrsh7th/cmp-buffer'
+	Plug 'hrsh7th/cmp-path'
+	Plug 'hrsh7th/cmp-cmdline'
+	Plug 'saadparwaiz1/cmp_luasnip'
+	Plug 'L3MON4D3/LuaSnip'
 	Plug 'preservim/nerdtree'
-	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-	Plug 'junegunn/fzf.vim'
 	Plug 'morhetz/gruvbox'
 	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-fugitive'
+	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+	Plug 'numToStr/Comment.nvim'
+	Plug 'onsails/lspkind-nvim'
 call plug#end()
 
-let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-go', 'coc-yaml']
+" Syntax highlights
+syntax on
+set nohlsearch
 
-set nocompatible            " disable compatibility to old-time vi
-set showmatch               " show matching 
-set ignorecase              " case insensitive 
-set mouse=v                 " middle-click paste with 
-set hlsearch                " highlight search 
-set incsearch               " incremental search
-set tabstop=4               " number of columns occupied by a tab 
-set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
-set expandtab               " converts tabs to white space
-set shiftwidth=4            " width for autoindents
-set autoindent              " indent a new line the same amount as the line just typed
-set number                  " add line numbers
-set wildmode=longest,list   " get bash-like tab completions
-" set cc=80                 " set an 80 column border for good coding style
-filetype plugin indent on   "allow auto-indenting depending on file type
-syntax on                   " syntax highlighting
-set mouse=a                 " enable mouse click
-set clipboard=unnamedplus   " using system clipboard
-filetype plugin on
-" set cursorline              " highlight current cursorline
-set ttyfast                 " Speed up scrolling in Vim
-" set spell                 " enable spell check (may need to download language package)
-" set noswapfile            " disable creating swap file
+" search
+set incsearch
+set ic
+set smartcase
+
+" Colors
+colorscheme gruvbox
+highlight Normal ctermbg=none
+" set background=dark
+
+" line numbers
+set nu 
+nmap <leader>nm :set rnu!<CR>
+
+" indentation
+set smartindent 
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
+
+" clipboard
+set clipboard=unnamed
+
+" undo
+set undodir=~/.local/nvim/undodir
+set undofile
+
+" update path
+set path+=**
+
+" show matching brackets
+set showmatch
+
+" enable mouse
+set mouse=a
 
 " NERDTree mappings
 let NERDTreeShowHidden=1
@@ -58,3 +83,5 @@ nnoremap <leader>7 7gt<CR>
 nnoremap <leader>8 8gt<CR>
 nnoremap <leader>9 9gt<CR>
 nnoremap <leader>0 :tablast<CR>
+
+lua require('init')
