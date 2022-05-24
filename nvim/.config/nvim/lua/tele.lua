@@ -9,16 +9,18 @@ telescope.setup{
 	defaults = {
 		mappings = {
 			i = {
-				["<esc>"] = actions.close,
 				["<C-j>"] = actions.move_selection_next,
 				["<C-k>"] = actions.move_selection_previous
-			}
+			},
+            n = {
+                ["<C-c>"] = actions.close
+            }
 		}
 	}
 }
 local opts = { noremap=true }
-vim.api.nvim_set_keymap('n', 'ff', '<cmd>lua require(\'telescope.builtin\').find_files()<cr>', opts)
-vim.api.nvim_set_keymap('n', 'fg', '<cmd>lua require(\'telescope.builtin\').live_grep()<cr>', opts)
+vim.api.nvim_set_keymap('n', 'ff', '<cmd>lua require(\'telescope.builtin\').find_files({hidden=true})<cr>', opts)
+vim.api.nvim_set_keymap('n', 'fg', '<cmd>lua require(\'telescope.builtin\').live_grep{vimgrep_arguments = { \'rg\', \'--color=never\', \'--no-heading\', \'--with-filename\', \'--line-number\', \'--column\', \'--smart-case\', \'-u\', \'--hidden\'}, file_ignore_patterns = { \'.git/\' }}<cr>', opts)
 vim.api.nvim_set_keymap('n', 'fgc', '<cmd>lua require(\'telescope.builtin\').current_buffer_fuzzy_find()<cr>', opts)
 vim.api.nvim_set_keymap('n', 'fb', '<cmd>lua require(\'telescope.builtin\').buffers()<cr>', opts)
-vim.api.nvim_set_keymap('n', 'fb', '<cmd>lua require(\'telescope.builtin\').buffers()<cr>', opts)
+vim.api.nvim_set_keymap('n', 'fh', '<cmd>lua require(\'telescope.builtin\').help_tags()<cr>', opts)
