@@ -18,6 +18,7 @@ call plug#begin()
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	Plug 'numToStr/Comment.nvim'
 	Plug 'onsails/lspkind-nvim'
+    Plug 'lukas-reineke/lsp-format.nvim' " auto format on save
 call plug#end()
 
 " Syntax highlights

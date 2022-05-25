@@ -19,7 +19,7 @@ telescope.setup{
 	}
 }
 local opts = { noremap=true }
-vim.api.nvim_set_keymap('n', 'ff', '<cmd>lua require(\'telescope.builtin\').find_files({hidden=true})<cr>', opts)
+vim.api.nvim_set_keymap('n', 'ff', '<cmd>lua require(\'telescope.builtin\').find_files{{hidden=true}, file_ignore_patterns = { \'.git/\' }}<cr>', opts)
 vim.api.nvim_set_keymap('n', 'fg', '<cmd>lua require(\'telescope.builtin\').live_grep{vimgrep_arguments = { \'rg\', \'--color=never\', \'--no-heading\', \'--with-filename\', \'--line-number\', \'--column\', \'--smart-case\', \'-u\', \'--hidden\'}, file_ignore_patterns = { \'.git/\' }}<cr>', opts)
 vim.api.nvim_set_keymap('n', 'fgc', '<cmd>lua require(\'telescope.builtin\').current_buffer_fuzzy_find()<cr>', opts)
 vim.api.nvim_set_keymap('n', 'fb', '<cmd>lua require(\'telescope.builtin\').buffers()<cr>', opts)
