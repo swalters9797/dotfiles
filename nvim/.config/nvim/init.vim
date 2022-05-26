@@ -1,23 +1,23 @@
 " Plugin Section
 call plug#begin()
-	Plug 'neovim/nvim-lspconfig'
-	Plug 'nvim-lua/plenary.nvim'
-	Plug 'nvim-telescope/telescope.nvim' " Need to run brew install ripgrep for grep commands to work
-	Plug 'hrsh7th/nvim-cmp'
-	Plug 'hrsh7th/cmp-nvim-lsp'
-	Plug 'hrsh7th/cmp-nvim-lua'
-	Plug 'hrsh7th/cmp-buffer'
-	Plug 'hrsh7th/cmp-path'
-	Plug 'hrsh7th/cmp-cmdline'
-	Plug 'saadparwaiz1/cmp_luasnip'
-	Plug 'L3MON4D3/LuaSnip'
-	Plug 'preservim/nerdtree'
-	Plug 'morhetz/gruvbox'
-	Plug 'tpope/vim-surround'
-	Plug 'tpope/vim-fugitive'
-	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-	Plug 'numToStr/Comment.nvim'
-	Plug 'onsails/lspkind-nvim'
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim' " Need to run brew install ripgrep for grep commands to work
+    Plug 'hrsh7th/nvim-cmp'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-nvim-lua'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-path'
+    Plug 'hrsh7th/cmp-cmdline'
+    Plug 'saadparwaiz1/cmp_luasnip'
+    Plug 'L3MON4D3/LuaSnip'
+    Plug 'preservim/nerdtree'
+    Plug 'morhetz/gruvbox'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-fugitive'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'numToStr/Comment.nvim'
+    Plug 'onsails/lspkind-nvim'
     Plug 'lukas-reineke/lsp-format.nvim' " auto format on save
 call plug#end()
 
