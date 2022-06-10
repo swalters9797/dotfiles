@@ -85,10 +85,5 @@ for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     capabilities = capabilities,
     on_attach = on_attach,
-    settings = {
-        gopls = {
-            env = {GOFLAGS="-tags=integration"}
-        }
-    }
   }
 end
