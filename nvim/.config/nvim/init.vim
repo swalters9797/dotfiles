@@ -45,6 +45,12 @@ set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
 
+augroup filetype_yaml
+  autocmd!
+  autocmd BufEnter *.yaml,*.yml
+  \ setlocal indentkeys-=0#
+augroup END
+
 " clipboard
 set clipboard=unnamed
 
